@@ -1,145 +1,88 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 
 const Contact: React.FC = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    message: '',
-    rgpd: false
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!formData.rgpd) {
-      alert("Veuillez accepter le traitement de vos données (RGPD).");
-      return;
-    }
-    
-    const subject = encodeURIComponent(`Nouveau contact Portfolio - ${formData.name}`);
-    const body = encodeURIComponent(
-      `Nom: ${formData.name}\n` +
-      `Email: ${formData.email}\n` +
-      `Téléphone: ${formData.phone || 'Non renseigné'}\n\n` +
-      `Message:\n${formData.message}`
-    );
-    window.location.href = `mailto:Anaelle.franoux@gmail.com?subject=${subject}&body=${body}`;
-  };
-
   return (
     <div className="container mx-auto px-4 md:px-6">
-      <div className="max-w-5xl mx-auto bg-provence-beige/50 rounded-3xl overflow-hidden shadow-2xl flex flex-col md:flex-row">
-        <div className="md:w-1/3 bg-provence-earth p-8 md:p-10 text-white flex flex-col justify-between">
-          <div>
-            <h3 className="text-3xl font-serif mb-6">Contactez-moi</h3>
-            <p className="opacity-80 leading-relaxed mb-8">
-              Prête à discuter de vos futurs projets ou d'une opportunité au sein de votre agence. Je suis mobile dans toute la France.
-            </p>
-          </div>
-          
-          <div className="space-y-6">
-            <div className="flex items-start gap-4">
-              <span className="text-provence-yellow mt-1">●</span>
-              <div>
-                <p className="font-bold">Localisation</p>
-                <p className="text-sm opacity-80">Béthune, Pas-de-Calais</p>
-              </div>
-            </div>
-            <div className="flex items-start gap-4">
-              <span className="text-provence-yellow mt-1">●</span>
-              <div>
-                <p className="font-bold">Mobilité</p>
-                <p className="text-sm opacity-80">Toute la France (Déplacement & Télétravail)</p>
-              </div>
-            </div>
-            <div className="flex items-start gap-4">
-              <span className="text-provence-yellow mt-1">●</span>
-              <div>
-                <p className="font-bold">Email</p>
-                <p className="text-sm opacity-80 break-all">Anaelle.franoux@gmail.com</p>
-              </div>
-            </div>
-          </div>
+      <div className="text-center mb-16">
+        <h2 className="text-provence-yellow font-medium uppercase tracking-widest text-sm mb-2">Collaboration</h2>
+        <h3 className="text-4xl md:text-5xl font-serif text-provence-earth">Parlons de vos projets</h3>
+      </div>
+
+      <div className="max-w-4xl mx-auto bg-white rounded-[3rem] overflow-hidden shadow-2xl border border-provence-lavender p-8 md:p-16 relative">
+        <div className="absolute top-0 right-0 p-8 opacity-10 pointer-events-none">
+          <svg className="w-48 h-48" viewBox="0 0 200 200" fill="currentColor">
+            <path d="M100 0 C155 0 200 45 200 100 S155 200 100 200 0 155 0 100 45 0 100 0" />
+          </svg>
         </div>
 
-        <div className="md:w-2/3 p-8 md:p-10 bg-white">
-          <form className="space-y-6" onSubmit={handleSubmit}>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <div className="space-y-2">
-                <label className="text-xs font-bold uppercase tracking-widest text-gray-400">Nom Complet</label>
-                <input 
-                  type="text" 
-                  required 
-                  value={formData.name}
-                  onChange={(e) => setFormData({...formData, name: e.target.value})}
-                  placeholder="Votre nom" 
-                  className="w-full border-b border-gray-200 py-3 focus:border-provence-yellow outline-none transition-colors"
-                />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div className="space-y-8">
+            <div className="space-y-4">
+              <h4 className="text-2xl font-serif text-provence-earth">Coordonnées</h4>
+              <p className="text-gray-600 leading-relaxed">
+                Je suis actuellement basée à <strong>Festubert</strong> et je me déplace régulièrement dans toute la France pour mes clients et partenaires.
+              </p>
+            </div>
+
+            <div className="space-y-6">
+              <div className="flex items-center gap-4 group">
+                <div className="w-12 h-12 rounded-2xl bg-provence-lavender flex items-center justify-center text-provence-muted-purple group-hover:bg-provence-yellow group-hover:text-white transition-all">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <a href="mailto:Anaelle.franoux@gmail.com" className="text-lg text-gray-700 hover:text-provence-yellow transition-colors font-medium">
+                  Anaelle.franoux@gmail.com
+                </a>
               </div>
-              <div className="space-y-2">
-                <label className="text-xs font-bold uppercase tracking-widest text-gray-400">Email</label>
-                <input 
-                  type="email" 
-                  required 
-                  value={formData.email}
-                  onChange={(e) => setFormData({...formData, email: e.target.value})}
-                  placeholder="votre@email.com" 
-                  className="w-full border-b border-gray-200 py-3 focus:border-provence-yellow outline-none transition-colors"
-                />
+
+              <div className="flex items-center gap-4 group">
+                <div className="w-12 h-12 rounded-2xl bg-provence-lavender flex items-center justify-center text-provence-muted-purple group-hover:bg-provence-yellow group-hover:text-white transition-all">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                </div>
+                <a href="tel:0674323466" className="text-lg text-gray-700 hover:text-provence-yellow transition-colors font-medium">
+                  06 74 32 34 66
+                </a>
+              </div>
+
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-2xl bg-provence-lavender flex items-center justify-center text-provence-muted-purple">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                </div>
+                <span className="text-lg text-gray-700 font-medium">
+                  Festubert, Pas-de-Calais
+                </span>
               </div>
             </div>
+          </div>
 
-            <div className="space-y-2">
-              <label className="text-xs font-bold uppercase tracking-widest text-gray-400">Numéro de téléphone (Optionnel)</label>
-              <input 
-                type="tel" 
-                value={formData.phone}
-                onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                placeholder="06 00 00 00 00" 
-                className="w-full border-b border-gray-200 py-3 focus:border-provence-yellow outline-none transition-colors"
-              />
+          <div className="bg-provence-beige/30 p-8 rounded-[2rem] border border-dashed border-provence-yellow flex flex-col items-center justify-center text-center space-y-6">
+            <div className="w-20 h-20 bg-provence-yellow/10 rounded-full flex items-center justify-center">
+              <span className="text-4xl">✨</span>
             </div>
-
-            <div className="space-y-2">
-              <label className="text-xs font-bold uppercase tracking-widest text-gray-400">Votre Message</label>
-              <textarea 
-                rows={4} 
-                required 
-                value={formData.message}
-                onChange={(e) => setFormData({...formData, message: e.target.value})}
-                placeholder="Discutons de votre projet ou d'une opportunité..." 
-                className="w-full border-b border-gray-200 py-3 focus:border-provence-yellow outline-none transition-colors resize-none"
-              />
-            </div>
-
-            <div className="flex items-start gap-3 py-2">
-              <input 
-                type="checkbox" 
-                id="rgpd" 
-                required 
-                checked={formData.rgpd}
-                onChange={(e) => setFormData({...formData, rgpd: e.target.checked})}
-                className="mt-1 w-4 h-4 accent-provence-yellow"
-              />
-              <label htmlFor="rgpd" className="text-sm text-gray-500 cursor-pointer select-none">
-                J'accepte que mes données soient traitées dans le but de répondre à ma demande de contact.
-              </label>
-            </div>
-
-            <button 
-              type="submit" 
-              className="w-full bg-provence-yellow hover:bg-provence-yellow/90 text-white font-bold py-4 rounded-xl shadow-lg transition-all active:scale-95 text-lg"
-            >
-              Envoyer ma demande
-            </button>
-          </form>
-
-          <div className="mt-8 text-center">
-            <p className="text-gray-400 text-sm">
-              Ou contactez-moi directement : <br />
-              <a href="mailto:Anaelle.franoux@gmail.com" className="text-provence-muted-purple font-bold hover:underline">Anaelle.franoux@gmail.com</a>
+            <p className="font-serif text-xl text-provence-earth italic">
+              "Créons ensemble une communication qui vous ressemble."
             </p>
+            <div className="flex flex-col gap-3 w-full">
+              <a 
+                href="tel:0674323466" 
+                className="bg-provence-yellow text-white px-8 py-4 rounded-2xl font-bold shadow-lg hover:bg-provence-yellow/90 transition-all active:scale-95 text-center"
+              >
+                Appeler maintenant
+              </a>
+              <a 
+                href="mailto:Anaelle.franoux@gmail.com" 
+                className="bg-white border-2 border-provence-lavender text-provence-earth px-8 py-4 rounded-2xl font-bold hover:bg-provence-lavender/10 transition-all text-center"
+              >
+                M'envoyer un email
+              </a>
+            </div>
           </div>
         </div>
       </div>

@@ -13,7 +13,7 @@ const About: React.FC = () => {
             <div>
               <h3 className="text-4xl font-serif text-provence-earth mb-6">Mon Parcours</h3>
               <p className="text-gray-600 leading-relaxed text-lg">
-                Originaire du <strong>Pas-de-Calais (près de Béthune)</strong>, mon parcours est guidé par une curiosité insatiable pour l'image et le message. De mon Bac Pro au Master, j'ai forgé une expertise hybride entre technique et stratégie.
+                Originaire du <strong>Pas-de-Calais (Festubert)</strong>, mon parcours est guidé par une curiosité insatiable pour l'image et le message. De mon Bac Pro au Master, j'ai forgé une expertise hybride entre technique et stratégie.
               </p>
             </div>
 
@@ -43,7 +43,7 @@ const About: React.FC = () => {
             />
             <div className="absolute -bottom-8 -right-8 bg-provence-yellow text-white p-6 rounded-lg shadow-xl max-w-xs rotate-1">
               <p className="font-serif text-lg italic leading-snug">
-                "Basée dans le Pas-de-Calais, mais prête à conquérir toute la France pour vos projets créatifs."
+                "Basée à Festubert, mais prête à conquérir toute la France pour vos projets créatifs."
               </p>
             </div>
           </div>
